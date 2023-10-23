@@ -62,5 +62,5 @@ if __name__ == "__main__":
     if prompt_for_user_confirmation("Start creating new hardlink?"):
         for origin, new in rename_path_pair_collection:
             new.parent.mkdir(parents=True, exist_ok=True)
-            # Should be `new.hardlink_to(origin)` since Python 3.10
-            origin.link_to(new)
+            new.hardlink_to(origin)
+            # origin.link_to(new)  # For python <= 3.9
